@@ -1,0 +1,47 @@
+<?php
+/**
+ * config.php.example
+ * Rename to config.php and update values. Keep config.php out of version control.
+ */
+
+// Basic settings
+date_default_timezone_set('UTC');
+
+// Session (needed by dashboard and other pages)
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Database settings — replace placeholders with your values
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'your_database_name');
+define('DB_USER', 'your_database_user');
+define('DB_PASS', 'your_database_password');
+define('DB_CHARSET', 'utf8mb4');
+
+// PDO connection (recommended)
+$dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+$pdoOptions = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+
+try {
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $pdoOptions);
+} catch (PDOException $e) {
+    // In production do not echo error details. Log them instead.
+    error_log('Database connection error: ' . $e->getMessage());
+    exit('Database connection failed. Check server logs.');
+}
+
+/*
+Optional: If other parts of your app expect a mysqli connection variable ($conn),
+uncomment and configure below instead of or in addition to PDO.
+
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+if ($mysqli->connect_error) {
+    error_log('MySQLi connection error: ' . $mysqli->connect_error);
+    exit('Database connection failed.');
+}
+?>

@@ -1,0 +1,36 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.sqlite
+*.sqlite3
+
+# Dependency directories
+vendor/
+node_modules/
+
+# Environment / secrets
+.env
+.env.local
+config.php
+config.local.php
+*.key
+*.pem
+
+# Build / runtime
+dist/
+build/
+cache/
+tmp/
+uploads/
+storage/
+
+# Composer / PHP
+composer.phar
+composer.lock
+
+# Misc
+*.bak
+*.swp
