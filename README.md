@@ -18,7 +18,7 @@ A simple PHP-based personal expense tracker that lets users add income, expenses
 1. Clone the repo:
    ```
    git clone https://github.com/YourGitHubUsername/PERSONAL-EXPENSE=TRACKER.git
-   cd COSC_326_PROJECT
+   cd PERSONAL-EXPENSE-TRACKER
    ```
 2. Copy config example and update DB credentials:
    ```
@@ -48,5 +48,6 @@ A simple PHP-based personal expense tracker that lets users add income, expenses
 ## Contributing
 - Open an issue or submit a PR.
 - Keep sensitive information out of commits.
+
 
 
